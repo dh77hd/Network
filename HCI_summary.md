@@ -43,3 +43,21 @@
 - 컨테이너 에코 시스템(OpenShift 지원)
 - 업그레이드 강화(No vMotion)
 - 인터사이트를 통한 스토리지 분석 기능 제공
+
+
+
+## # NETAPP HCI
+
+   ### 1. 특징
+
+- 고유 QoS  기능
+  - VM 단위 QoS 설정 기능(VVols)
+  - 어플리케이션/볼륨 당 Min, Max, Burst 성능 설정
+- 유연한 확장성 : Compute, Storage Node 별로 필요한 자원만 확장 가능(1box 4node)
+- vCenter 통합 관리 : 별로의 스토리지 관리툴 없이 vCenter를 통해 95% 이상의 관리 작업 가능
+- SolidFire OS :  SolidFire 고유의 데이터 보호 기술 사용
+- 기존  NETAPP Storage(FAS) 연동 가능 : DR로 사용
+- Storage Node에서 따로 컨트롤(Compute Node에 별도의 CVM 없음)
+- 2 Copy Block 방식
+- 10월부터 Compute Node 에서 CPU, MEM 선택 가능
+
