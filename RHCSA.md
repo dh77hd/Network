@@ -318,3 +318,65 @@ chown [owner]:[group] [name]
 
 ### 4-3. POSIX ACL
 
+- ACL은 파일 및 디렉터리에 대한 세밀한 액세스 제어 제공
+- 파일 시스템은 ACL 지원을 활성화하여 마운트
+
+
+
+#### 4-3-1. ACL 권한 적용 순서
+
+- 프로세스가 파일을 소유하고 있는 사용자로 실행되는 경우 파일의 사용자 권한이 적용
+- 프로세스가 사용자 ACL 항목에 나열된 사용자로 실행 중인 경우에는 명명된 사용자 ACL 권한이 적용
+- 프로세스가 파일의 그룹 소유자와 일치하는 그룹 또는 명시적 명명된 그룹 ACL 항목이 있는 그룹으로 실행되는 경우, 일치하는 ACL 권한이 적용
+- 그렇지 않은 경우, 파일의 other ACL 사용 권한 적용
+
+
+
+### 4-4. ACL로 파일 보호
+
+#### 4-4-1. ACL 파일 권한 변경
+
+##### ACL 추가 또는 수정
+
+```
+setfacl -m u:[name]:[rwx] [file]
+```
+
+name이 비어 있는 경우, file owner에 적용
+
+```
+setfacl -m g:[name]:[rwx] [file]
+```
+
+group에 적용. name이 비어 있는 경우, group owner에 적용
+
+##### getfacl을 입력으로 사용
+
+getfacl의 출력을 setfacl에 대한 입력으로 사용 가능
+
+```
+getfacl fileA | setfacl --set-file=- fileB
+```
+
+##### 명시적 ACL 마스크 설정
+
+파일 또는 디렉터리에 ACL 마스크를 명시적으로 설정하여 명명된 사용자, 그룹 소유자, 명명된 그룹의 최대 유효 권한 제한 가능
+
+```
+setfacl -m m::[rwx] [file]
+```
+
+##### ACL 삭제
+
+```
+setfacl -x u:[name],g:[name] [file]
+```
+
+
+
+#### 4-4-2. 기본 ACL 파일 권한 제어
+
+```
+setfacl -m d:u:[name]:[rwx] [directory]
+```
+
