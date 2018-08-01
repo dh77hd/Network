@@ -25,7 +25,7 @@ HA 가능 마스터노드와 실제 앱이 구동하는 컨테이너들의 Pod�
 - 데이터센터가 하나의 큰 컴퓨터가 되기 위해 데이터 센터 내의 많은 CPU, 메모리, 저장장치, 네트워킹 등의 세부사항들을 추상화하는 운영체제
 - 쿠버네티스는 데이터센터 운영체제가 되기 위한 것 중 하나
 
-![1533101892267](C:\Users\LDCC\Desktop\Git\Note\image\k8s_01.PNG)
+![1533101892267](https://github.com/dh77hd/Note/blob/master/image/k8s_01.PNG?raw=true)
 
 ### 1-3. 특징
 
