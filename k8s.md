@@ -16,7 +16,7 @@
 
 - 쿠버네티스는 클러스터 구조로, 클러스터 전체를 관리하는 컨트롤로써 마스터(마스터 노드)가 존재하고, 컨테이너가 배포되는 머신인 노드(워커 노드)가 존재
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/image/k8s_01.PNG?raw=true)
 
 
 
@@ -65,7 +65,7 @@
 - Pod 내의 컨테이너는 IP와 Port를 공유
 - Pob 내에 배포된 컨테이너 간에는 디스크 볼륨 공유
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/image/k8s_02.PNG?raw=true)
 
 #### 2-2-2. Volume
 
@@ -82,7 +82,7 @@
 - 각 Pod를 생성할 때, 메타 데이터 정보 부분에 라벨 정의 가능
 - 서비스는 라벨 셀렉터에서 특정 라벨을 가지고 있는 Pod만 선택하여 서비스를 묶음
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/image/k8s_03.PNG?raw=true)
 
 #### 2-2-4. Namespace
 
@@ -93,7 +93,7 @@
 - 네임스페이스 별로 리소스 할당량 지정 가능
 - 논리적인 분리 단위이므로, 다른 네임스페이스 간의 Pod라도 통신 가능
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/image/k8s_04.PNG?raw=true)
 
 #### 2-2-5. Label
 
@@ -118,6 +118,8 @@
   - Replica 수 : RC에 의해서 관리되는 Pod의 수로, 그 숫자만큼 Pod의 수를 유지
   - Pod Template : Pod를 추가로 기동할 때, Pod 정보(도커 이미지, 포트, 라벨 등) 정의
 
+![](https://github.com/dh77hd/Note/blob/master/image/k8s_05.PNG?raw=true)
+
 #### 2-3-2. ReplicaSet
 
 - Replication Controller의 새버전
@@ -130,7 +132,7 @@
 - Pod 배포를 위해서 RC를 생성하고 관리하는 역할
 - 롤백을 위한 기존 버전의 RC 관리 등 여러가지 기능 포함
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/image/k8s_06.PNG?raw=true)
 
 ##### 쿠버네티스 배포
 
@@ -142,7 +144,7 @@
 
    - 배포 완료 후, 문제가 없으면 예전 버전의 RC와 Pod를 지움
 
-     [이미지]
+     ![](https://github.com/dh77hd/Note/blob/master/image/k8s_07.PNG?raw=true)
 
 2. 롤링 업그레이드
 
@@ -150,11 +152,142 @@
 
    - 새로운 RC를 생성한 후, 기존 RC에서 Replica 수를 하나 줄이고 새로운 RC에서 Replicat 수를 늘림
 
-     [ 이미지]
+     ![](https://github.com/dh77hd/Note/blob/master/image/k8s_08.PNG?raw=true)
+
+     ![](https://github.com/dh77hd/Note/blob/master/image/k8s_09.PNG?raw=true)
 
    - 모든 작업을 마치면, 예전 버전의 Pod가 모두 빠지고 새 버전의 Pod만 서비스
 
    - 배포가 잘못되었다면, 기존 RC의 replica 수를 원래대로 늘리고 새 버전의 replica 수를 0으로 설정하여 롤백 가능
+
+#### 2-3-4. DaemonSet
+
+- DS는 Pod가 각각의 노드에서 하나씩만 돌게 하는 형태로 Pod를 관리하는 컨트롤러
+- RC나 RS에 의해서 관리되는 Pod는 여러 노드의 상황에 따라 비균등적으로 배포, DS에 의해 관리되는 Pod는 모든 노드에 균등하게 하나씩만 배포
+- 서버의 모니터링이나 로그 수집 용도로 이용
+- 특정 노드에만 Pod를 배포할 수 있도록 node selector를 이용해서 라벨을 이용하여 특정 노드만 선택 가능
+
+[이미지]
+
+#### 2-3-5. Job
+
+- 배치나 한 번 실행되고 끝나는 형태의 워크로드 모델을 지원하는 컨트롤러
+- Job에 의해서 관리되는 Pod는 Job이 종료되면 Pod를 같이 종료
+- Job을 정의할 때, 컨테이너 스펙 부분에 Job을 수행하기 위한 커맨드를 같이 입력
+
+#### 2-3-6. StatefulSet
+
+- 데이터베이스 등과 같이 상태를 가지고 있는 Pod를 지원하기 위한 컨트롤러
+
+
+
+## 3. 아키텍처
+
+[이미지]
+
+### 3-1. 마스터와 노드
+
+- 쿠버네티스는 마스터와 노드 두 개의 컴포넌트로 분리
+- 마스터는 쿠버네티스의 설정 환경을 저장하고 전체 클러스터를 관리하는 역할
+- 노드는 Pod나 컨테이너처럼 쿠버네티스 위에서 동작하는 워크로드를 호스팅하는 역할
+
+#### 3-1-1. 마스터
+
+- 쿠버네티스 클러스터 전체를 컨트롤하는 시스템
+- API 서버, 스케줄러, 컨트롤러 매니저, etcd로 구성
+
+##### API server
+
+- 쿠버네티스의 모든 기능들을 RESTful API로 제공하고 그에 대한 명령 처리
+
+##### Etcd
+
+- 쿠버네티스 클러스터의 데이터베이스 역할이 되는 서버로 설정값이나 클러스터의 상태를 저장하는 서버
+- etcd라는 분산형 키/밸류 스토어 오픈소스로 쿠버네티스 클러스터의 상태나 설정 정보를 저장
+
+##### Scheduler
+
+- Pod, 서비스 등 각 리소스들을 적절한 노드에 할당하는 역할
+
+##### Controller Manager
+
+- 컨트롤러를 생성하고 이를 각 노드에 배포하며 관리하는 역할
+
+##### DNS
+
+- 쿠버네티스는 리소스의 엔드포인트를 DNS로 맵핑하고 관리
+- 새로운 리소스가 생기면, 리소스에 대한 IP와 DNS 이름을 등록하여 DNS 이름을 기반으로 리소스에 접근
+
+#### 3-1-2. 노드
+
+- 마스터 명령을 받고 실제 워크로드를 생성하여 서비스 하는 컴포넌트
+- Kubelet, Kube-proxy, cAdvisor, Container runtime 로 구성
+
+##### Kubelet
+
+- 노드에 배포되는 에이전트
+- 마스터의 API 서버와 통신하며, 노드가 수행해야 할 명령을 받아서 수행
+- 노드의 상태 등을 마스터로 전달
+
+##### Kube-proxy
+
+- 노드로 들어오는 네트워크 트래픽을 적절한 컨테이너로 라우팅
+- 로드밸런싱 등 노드로 들어오고 나가는 네트워크 트래픽을 프록시하고 노드와 마스터 간의 네트워크 통신을 관리
+
+##### Container Runtime
+
+- Pod를 통해서 배포된 컨테이너를 실행
+- 종류에는 도커 컨테이너, rkt, Hyper container 등
+
+##### cAdvisor
+
+- 각 노드에서 기동되는 모니터링 에이전트
+- 노드 내에서 가동되는 컨테이너들의 상태와 성능 등의 정보를 수집하여 마스터 서버의 API 서버로 전달
+
+
+
+## 4. Volume
+
+- Pod에 종속되는 디스크로, Pod 단위이기 때문에 여러 개의 컨테이너가 공유해서 사용 가능
+
+### 4-1. 볼륨 종류
+
+- 볼륨 타입
+
+| Temp     | Local    | Network                                                      |
+| -------- | -------- | ------------------------------------------------------------ |
+| emptyDir | hostPath | GlusterFS<br />gitRepo<br />NFS, iSCSI, gcePersistentDisk, AWS EBS, Fiber Channel, vSphereVolume, Secret, AzureDisk |
+
+#### 4-1-1.  emptyDir
+
+- Pod가 생성될 때 생성되고, 삭제될 때 같이 삭제되는 임시 볼륨
+- 물리적으로 노드에서 할당해주는 디스크에 저장
+
+#### 4-1-2. hostPath
+
+- 노드의 로컬 디스크의 경로를 Pod에 마운트해서 사용
+- 같은 hostPath에 있는 볼륨은 여러 Pod 사이에서 공유되어 사용
+
+#### 4-1-3. gitRepo
+
+- 생성 시에 지정된 git repogitory 의 특정 리비전의 내용을 Clone을 이용해서 받은 후에 디스크 볼륨을 생성하는 방식
+- 물리적으로 emptyDir 이 생성되고, git repogitory 내용을 Clone으로 다운
+
+
+
+### 4-2. PersistentVolume and PersistentVolumeClaim
+
+- 인프라에 종속적인 부분은 시스템 관리자가 설정하도록 하고, 개발자는 간단하게 사용할 수 있도록 디스크 볼륨 부분에 PersistentVolume(PV) 와 PersistentVolumeClaim(PVC) 개념 도입
+- 시스템 관리자가 실제 물리 디스크를 생성한 후, 이 디스크를 PV 라는 이름으로 쿠버네티스에 등록
+- 개발자는 Pod를 생성할 때, 볼륨을 정의하고 볼륨 정의 부분에 물리적 디스크에 대한 특성이 아닌 PVC를 지정하여 PV와 연결
+- 시스템 관리자가 생성한 물리 디스크를 쿠버네티스 클러스터에 표현한 것이 PV
+- Pod의 볼륨과 PV를 연결하는 관계가 PVC
+
+#### 4-2-1. PersistentVolume 
+
+#### 4-2-2. PersistentVolumeClaim
+
+
 
 
 
