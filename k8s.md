@@ -16,7 +16,7 @@
 
 - 쿠버네티스는 클러스터 구조로, 클러스터 전체를 관리하는 컨트롤로써 마스터(마스터 노드)가 존재하고, 컨테이너가 배포되는 머신인 노드(워커 노드)가 존재
 
-![](https://github.com/dh77hd/Note/blob/master/image/k8s_01.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_01.PNG?raw=true)
 
 
 
@@ -65,7 +65,7 @@
 - Pod 내의 컨테이너는 IP와 Port를 공유
 - Pob 내에 배포된 컨테이너 간에는 디스크 볼륨 공유
 
-![](https://github.com/dh77hd/Note/blob/master/image/k8s_02.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_02.PNG?raw=true)
 
 #### 2-2-2. Volume
 
@@ -82,7 +82,7 @@
 - 각 Pod를 생성할 때, 메타 데이터 정보 부분에 라벨 정의 가능
 - 서비스는 라벨 셀렉터에서 특정 라벨을 가지고 있는 Pod만 선택하여 서비스를 묶음
 
-![](https://github.com/dh77hd/Note/blob/master/image/k8s_03.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_03.PNG?raw=true)
 
 #### 2-2-4. Namespace
 
@@ -93,7 +93,7 @@
 - 네임스페이스 별로 리소스 할당량 지정 가능
 - 논리적인 분리 단위이므로, 다른 네임스페이스 간의 Pod라도 통신 가능
 
-![](https://github.com/dh77hd/Note/blob/master/image/k8s_04.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_04.PNG?raw=true)
 
 #### 2-2-5. Label
 
@@ -118,7 +118,7 @@
   - Replica 수 : RC에 의해서 관리되는 Pod의 수로, 그 숫자만큼 Pod의 수를 유지
   - Pod Template : Pod를 추가로 기동할 때, Pod 정보(도커 이미지, 포트, 라벨 등) 정의
 
-![](https://github.com/dh77hd/Note/blob/master/image/k8s_05.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_05.PNG?raw=true)
 
 #### 2-3-2. ReplicaSet
 
@@ -132,7 +132,7 @@
 - Pod 배포를 위해서 RC를 생성하고 관리하는 역할
 - 롤백을 위한 기존 버전의 RC 관리 등 여러가지 기능 포함
 
-![](https://github.com/dh77hd/Note/blob/master/image/k8s_06.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_06.PNG?raw=true)
 
 ##### 쿠버네티스 배포
 
@@ -144,7 +144,7 @@
 
    - 배포 완료 후, 문제가 없으면 예전 버전의 RC와 Pod를 지움
 
-     ![](https://github.com/dh77hd/Note/blob/master/image/k8s_07.PNG?raw=true)
+     ![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_07.PNG?raw=true)
 
 2. 롤링 업그레이드
 
@@ -152,9 +152,9 @@
 
    - 새로운 RC를 생성한 후, 기존 RC에서 Replica 수를 하나 줄이고 새로운 RC에서 Replicat 수를 늘림
 
-     ![](https://github.com/dh77hd/Note/blob/master/image/k8s_08.PNG?raw=true)
+     ![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_08.PNG?raw=true)
 
-     ![](https://github.com/dh77hd/Note/blob/master/image/k8s_09.PNG?raw=true)
+     ![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_09.PNG?raw=true)
 
    - 모든 작업을 마치면, 예전 버전의 Pod가 모두 빠지고 새 버전의 Pod만 서비스
 

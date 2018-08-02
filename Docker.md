@@ -17,7 +17,7 @@
 - 기존의 전가상화, 반가상화는 추가적인 OS를 설치하여 가상화하는 방법이므로 성능에 문제가 있었고, 이를 개선하기 위해 **프로세스를 격리** 하는 방식이 등장
 - 하나의 서버에 여러 개의 컨테이너를 실행해도 서로 영향을 미치지 않고 독립적으로 실행
 
-![](https://github.com/dh77hd/Note/blob/master/image/Docker_01.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/Docker_01.PNG?raw=true)
 
 #### Why?
 
@@ -41,7 +41,7 @@
 
 ### 1-4. 레이어 저장 방식
 
-![](https://github.com/dh77hd/Note/blob/master/image/Docker_02.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/Docker_02.PNG?raw=true)
 
 - 레이어(Layer)라는 개념을 사용하고 유니온 파일 시스템을 이용하여 여러 개의 레이어를 하나의 파일 시스템으로 사용할 수 있게 해줌
 - 이미지는 여러 개의 읽기 전용 레이어로 구성되고, 파일이 추가되거나 수정되면 새로운 레이어가 생성
@@ -50,7 +50,7 @@
 
 ### 1-5. 이미지 경로
 
-![](https://github.com/dh77hd/Note/blob/master/image/Docker_03.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/00_image/Docker_03.PNG?raw=true)
 
 - URL 방식으로 관리하며, 태그를 붙일 수 있음
 
