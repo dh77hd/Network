@@ -283,7 +283,32 @@
 - 시스템 관리자가 생성한 물리 디스크를 쿠버네티스 클러스터에 표현한 것이 PV
 - Pod의 볼륨과 PV를 연결하는 관계가 PVC
 
+[이미지]
+
 #### 4-2-1. PersistentVolume 
+
+[이미지]
+
+- Capacity :  볼륨의 용량 정의
+- VolumeMode : 볼륨이 일반 Filesystem 인지 raw 볼륨인지 정의 / Filesystem 또는 raw 설정 가능
+- Reclaim Policy : PV는 연결된 PVC가 삭제된 후, 다른 PVC에서 재사용이 가능하고 재사용시에 디스크의 내용을 지울지 유지할지에 대한 정책을 Reclaim Policy를 이용하여 설정 가능
+  - Retain : PV 내용 유지
+  - Recycle : 재사용이 가능 / 재사용시에는 자동으로 rm -rf로 삭제한 후 재사용
+  - Delete : 볼륨의 사용이 끝나면 해당 볼륨 삭제
+- AccessMode : PV에 대한 동시 Pod에서 접근할 수 있는 정책 정의
+  - ReadWriteOnce(RWO) : 해당 PV는 하나의 Pod에만 마운트되고 읽고 쓰기가 가능
+  - ReadOnlyMany(ROX) : 여러 개의 Pod에 마운트,  동시 읽기가 가능하며 쓰기는 불가능
+  - ReadWriteMany(RWX) : 여러 개의 Pod에 마운트, 읽기, 쓰기 가능
+
+##### PV 라이프사이클
+
+- PV는 생성이 되면 Available 상태
+- PVC에 바인딩이 되면 Bound 상태로 바뀌고 사용이 됨
+- 바인딩된 PVC가 삭제되면 Released 상태
+
+##### PV 생성
+
+YAML 파일 등을 이용하여 수동으로 생성 및 필요시에 자동으로 생성 가능(Dynamic Provisioning)
 
 #### 4-2-2. PersistentVolumeClaim
 
