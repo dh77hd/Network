@@ -312,7 +312,13 @@ YAML 파일 등을 이용하여 수동으로 생성 및 필요시에 자동으�
 
 #### 4-2-2. PersistentVolumeClaim
 
+PVC는 Pod의 볼륨과 PVC를 연결하는 관계 선언
 
+[이미지]
+
+- accessMode, VolumeMode는 PV와 동일
+- resources는 PV와 같이 필요한 볼륨의 사이즈를 정의
+- selector를 통해서 볼륨 선택 가능하며, label selector 방식으로 이미 생성되어 있는 PV 중에 label이 매칭되는 볼륨을 찾아서 연결
 
 
 
