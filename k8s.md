@@ -183,7 +183,7 @@
 
 ## 3. 아키텍처
 
-![]()
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_00.PNG?raw=true)
 
 ### 3-1. 마스터와 노드
 
@@ -283,11 +283,11 @@
 - 시스템 관리자가 생성한 물리 디스크를 쿠버네티스 클러스터에 표현한 것이 PV
 - Pod의 볼륨과 PV를 연결하는 관계가 PVC
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_11.PNG?raw=true)
 
 #### 4-2-1. PersistentVolume 
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_12.PNG?raw=true)
 
 - Capacity :  볼륨의 용량 정의
 - VolumeMode : 볼륨이 일반 Filesystem 인지 raw 볼륨인지 정의 / Filesystem 또는 raw 설정 가능
@@ -314,11 +314,74 @@ YAML 파일 등을 이용하여 수동으로 생성 및 필요시에 자동으�
 
 PVC는 Pod의 볼륨과 PVC를 연결하는 관계 선언
 
-[이미지]
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_13.PNG?raw=true)
 
 - accessMode, VolumeMode는 PV와 동일
 - resources는 PV와 같이 필요한 볼륨의 사이즈를 정의
 - selector를 통해서 볼륨 선택 가능하며, label selector 방식으로 이미 생성되어 있는 PV 중에 label이 매칭되는 볼륨을 찾아서 연결
+
+#### 4-2-3. Dynamic Provisioning
+
+![](https://github.com/dh77hd/Note/blob/master/00_image/k8s_14.PNG?raw=true)
+
+- 시스템 관리자가 별도로 디스크를 생성하고  PV를 생성할 필요 없이 PVC만 정의하면 이에 맞는 물리 디스크 및 PV 생성을 자동화해주는 기능
+
+
+
+## 5. Service
+
+- Pod의 경우, IP가 랜던하게 지정되고 재시작될 때마다 변하기 때문에 고정된 엔드포인트로 호출이 어려움 / 여러 Pod에 같은 애플리케이션을 운용할 경우 로드밸런싱이 필요
+- 서비스는 지정된 IP로 생성이 가능하고 여러 Pod를 묶어서 로드밸런싱이 가능하며 고유한 DNS를 가짐
+- 멀티 포트 지원
+- 로드 밸런싱 알고리즘
+
+### 5-1. Service Type
+
+- Cluster IP
+- Load Balancer
+- Node IP
+- External name
+
+#### 5-1-1. Cluster IP
+
+- 디폴트 설정으로 서비스에 클러스터 IP(내부 IP)를 할당
+- 쿠버네티스 클러스터 내에서는 서비스에 접근기 가능하지만, 외부에서는 외부 IP를 할당 받지 못했기 때문에 접근이 불가능
+
+#### 5-1-2. Load Balancer
+
+- 외부 IP를 가지고 있는 로드밸런서를 할당
+- 외부에서 접근이 가능
+
+#### 5-1-3. Node Port
+
+- 클러스터 IP만이 아닌 모든 노드의 IP와 포트를 통해서도 접근 가능
+
+#### 5-1-4. External Name
+
+- 외부 서비스를 쿠버네티스 내부에서 호출하고자할 때 사용
+- 쿠버네티스 클러스터 내의 Pod 들은 클러스터 IP를 가지고 있기 때문에 클러스터 IP 대역 밖의 서비스를 호출하고자 하면, 복잡한 설정이 필요
+
+### 5-2. Headless Service
+
+- 마이크로 서비스 아키텍처에서는 기능 콤포넌트에 대한 엔드포인트를 찾는 기능을 Service Discovery라고 하고, 서비스의 위치를 등록해놓는 서비스 디스커버리 솔루션을 제공(ex: etcd, consul 등)
+- 이 경우, 쿠버네티스 서비스를 통해서 마이크로 서비스 컴포넌트를 관리하는 것이 아닌, 서비스 디스커버리 솔루션을 사용하기 때문에 서비스에 대한 IP 주소가 필요 없음
+- 해당 기능들을 제공하기 위한 것이 Headless Service
+- Cluster IP 등의 주소를 가지지 않고 DNS 이름을 가지며, DNS lookup 시 서비스의 IP가 아닌 해당 서비스에 연결된 Pod들의 IP 주소들을 리턴
+
+
+
+### 5-3. Service Discovery
+
+- DNS
+- External IP
+
+
+
+
+
+
+
+
 
 
 
