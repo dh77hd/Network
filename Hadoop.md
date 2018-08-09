@@ -270,11 +270,49 @@
 
 #### 3-2-1. 노드 구성
 
+- MapReduce 프레임워크에서 마스터 노드를 **'JobTracker'**, 슬레이브 노드를 **'TaskTracker'**
+- HDFS의 슬레이브 노드인 DataNode는 MapReduce의 TaskTracker와 물리적으로 같은 장비에 설치
+- MapReduce에 Job을 투입하는 클라이언트를 **'JobClient'**
+- JobTracker는 하나의 hadoop 클러스터로 하나가 가동 / Hadoop 클러스터 상에서 동작하는 모든 MapReduce 잡을 관리
+
 #### 3-2-2. JobTracker 역할
+
+MapReduce 프레임워크가 제공하는 분산 처리를 제어하기 위한 프로세스로, 마스터로 동작하는 자바 프로세스
+
+##### 잡 관리
+
+- Map 태스크 할당 제어
+- Map 처리 결과 파악
+- 잡 진행 통지
+
+##### 리소스 관리
+
+- 처리 할당 : Map 처리나 Reduce 처리를 TaskTracker에 할당
+- 처리의 주기적 실행
+- 처리 재할당
+- 블랙리스트화 : 처리 실패 빈도가 높은 TaskTracker에 처리 할당 X
+- TaskTracker 동작 여부 확인
+- TaskTracker 추가/제외
+
+##### 잡 실행 이력 관리
+
+- 잡 이력 관리
 
 #### 3-2-3. TaskTracker 역할
 
+- Child 프로세스 생성과 처리 실행
+- Child 프로세스 상태 확인
+- 처리 중지 통지
+- Hearbeat 통신 : 정기적으로 JobTracker에 Heartbeat 전송
+- Map 처리 수와 Reduce 처리 수 파악
+
 #### 3-2-4. JobClient 역할
+
+- 입력 데이터의 분할 방침 결정
+- 잡 의뢰 : JobTracker에게 MapReduce 잡 실행 의뢰
+- 애플리케이션 배포 : MapReduce 잡을 실행하기 위한 애플리케이션을 HDFS에 저장
+- 진행 상태 수신
+- 잡 관리 : 사용자 단위로 MapReduce 잡 관리
 
 
 
@@ -282,7 +320,17 @@
 
 #### 3-3-1. 스플릿
 
+- MapReduce는 HDFS에서 데이터를 읽어 들이고, 처리 결과도 저장
+- Map 태스크의 입력 데이터가 스플릿
+- 스플릿은 고정 데이터, 처리 대상 입력 데이터를 분할한 조각들
+- 하나의 Map 태스크는 하나의 스플릿에서 레코드를 읽어 처리
+
 #### 3-3-2. 데이터 지역성(Data Locality)
+
+데이터 배치 장소를 고려하여, 처리 프로그램을 데이터가 있는 곳으로 옮기는 것. MapReduce 처리를 할 때, 처리할 데이터가 존재하는 곳에서 처리될 수 있도록 NameNode와 통신하며 JobTracker가 태스크를 할당
+
+- JobClient 동작 : 
+- JobTracker가 태스크를 실행
 
 #### 3-3-3. Job ID와 Task ID
 
