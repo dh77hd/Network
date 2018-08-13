@@ -372,10 +372,19 @@ PVC는 Pod의 볼륨과 PVC를 연결하는 관계 선언
 
 ### 5-3. Service Discovery
 
-- DNS
-- External IP
+##### DNS
+
+- 서비스 생성 시, [서비스명].[네임스페이스명].svc.cluster.local 이라는 DNS 명으로 쿠버네티스 내부 DNS에 등록
+- 클러스터 내부에서는 이 DNS 명으로 서비스에 접근 가능
+- DNS에서 리턴해주는 IP는 Cluster IP(내부 IP)
+
+##### External IP
+
+- 외부 IP를 명시적으로 지정
 
 
+
+## 6. Ingress
 
 
 
