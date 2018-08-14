@@ -329,10 +329,12 @@ MapReduce 프레임워크가 제공하는 분산 처리를 제어하기 위한 �
 
 데이터 배치 장소를 고려하여, 처리 프로그램을 데이터가 있는 곳으로 옮기는 것. MapReduce 처리를 할 때, 처리할 데이터가 존재하는 곳에서 처리될 수 있도록 NameNode와 통신하며 JobTracker가 태스크를 할당
 
-- JobClient 동작 : 
-- JobTracker가 태스크를 실행
+- JobClient 동작 : 잡을 실행하기 앞서 HDFS 상의 데이터 장소를 JobClient가 NameNode에게 묻고, 입력 데이터 위치에 관한 파일(job.split)과  MapReduce 잡의 JAR 파일을 JobTracker가 지정한 디렉터리에 배치
+- JobTracker가 태스크를 실행 : JobTracker는 job.split 파일 정보를 바탕으로 Map 태스크 실행을 TaskTracker에게 의뢰. TaskTracker에 할당된 Map 태스크를 처리하는 Child 프로세스가 DataNode에서 데이터를 취득 후 처리
 
 #### 3-3-3. Job ID와 Task ID
+
+- **Job**은 사용자가 관리하고 
 
 #### 3-3-4. 태스크 할당
 
