@@ -1,0 +1,105 @@
+# # Elastic Stack 구축
+
+## 1. 대상 시스템
+
+##### 시스템 종류
+
+- FI(UCS)
+- Openstack (Host log)
+- Hyper-V(Host log)
+- Ceph Storage
+- 스토리지(Netapp) - 7 mode, C mode
+- 스위치
+
+
+
+## 2. 진행 단계
+
+### 2-1. Phase 1 (로그 수집)
+
+##### 1차 수집 대상
+
+- 스위치
+- 스토리지
+- FI
+
+##### 2차 수집 대상 (SNMP)
+
+- 스위치
+- 스토리지
+- FI
+
+### 2-2. Phase 2 (호스트 로그 및 메트릭 수집)
+
+- 호스트 서버 대상으로 호스트 로그 및 metric beat 수집
+
+
+
+## 3. 아키텍처
+
+
+
+![elastic_01](C:\Users\LDCC\Desktop\Git\Note\00_image\elastic_01.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## # 참고
+
+#========================== custom index setting =============================
+output.elasticsearch.index: "metricbeat-mgtweb1-%{[beat.version]}-%{+yyyy.MM.dd}"
+setup.template.name: "metricbeat-mgtweb1"
+setup.template.pattern: "metricbeat-mgtweb1-*"
+
+
+
+[설치]
+
+1. yum repo 갱신(centos)
+
+   1. [base]
+      name=CentOS-$releasever - Base
+      baseurl=http://mirror.centos.org/centos/7/os/$basearch/
+      gpgcheck=1
+
+      #released updates
+      [update]
+      name=CentOS-$releasever - Updates
+      baseurl=http://mirror.centos.org/centos/7/updates/$basearch/
+      gpgcheck=1
+
+   2. **#** rpm --import http://mirror.centos.org/centos/7/os/i386/RPM-GPG-KEY-CentOS-7
+
+         **# rpm --import http://mirror.centos.org/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7**
+
+2. java 설치
+
+3. NTP 설정
+
+4. jvm 설정
+
+5. limit 설정
+
+   1. /etc/security/limits.conf
+
+   2. ```
+      elasticsearch soft memlock unlimited
+      elasticsearch hard memlock unlimited
+      ```
+
+6. 엑스팩 비밀번호 설정
