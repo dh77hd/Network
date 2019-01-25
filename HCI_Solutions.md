@@ -1,4 +1,4 @@
-# HCI
+# # HCI Solutions
 
 ## # HyperFlex - Cisco HCI
 
@@ -26,7 +26,7 @@
 
 ### 3. 내부 소프트웨어 모듈
 
-![HX_1](C:\Users\LDCC\Desktop\Git\Note\HX_1.PNG)
+![HX_1](C:\Users\LDCC\Desktop\Git\Note\00_image\HX_1.PNG)
 
 - CVM : 드라이브 직접 액세스
 - VAAI : 클론과 스냅샷 운영을 간단하게 통합

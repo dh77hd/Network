@@ -1,7 +1,7 @@
 - OVN : Open Virtual Network. 인스턴스들에 네트워크 서비스를 제공해주기 위한 OVS 기반의 네트워크 가상화 솔루션.
 - SR-IOV : Single Root Input/Output Virtualization and Sharing. 인터페이스 단에서 가상화 지원. 커널이나 하이퍼바이저에서 NIC을 가상화하는  부담 제거. 
 
-![](https://raw.githubusercontent.com/dh77hd/OpenStack/master/1.PNG)
+![](https://github.com/dh77hd/Note/blob/master/83_OpenStack/image/1.PNG?raw=true)
 
 - DPDK : Data Plane Development Kit. 인텔에서 만든 라이브러리와 NIC 드라이버 모음. 
 

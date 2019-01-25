@@ -22,9 +22,9 @@
 - 중앙의 컨트롤러는 South Bound Protocol을 통해 네트워크 장비와 통신하여 Flow Rule 등을 설정하고, North Bound API를 이용하여 Overlay, Leaf-Spine, Auto Configuration 등의 네트워크 어플리케이션을 구현
 - 기존 네트워크와 비교하면, 중앙 컨트롤러에서 제공하는 API를 이용함으로써 Overlay와 같은 서비스별 가상 네트워크를 쉽게 정의할 수 있으며, 가상 머신간의 East-West 통신이 효과적으로 이루어짐
 
-![](https://github.com/dh77hd/Network/blob/master/00_image/sdn_01.png?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/81_Network/00_image/sdn_01.png?raw=true)
 
-### 
+
 
 ## 2. Overlay SDN
 
@@ -32,8 +32,6 @@
 
 - 서버 가상화 영역에 SDN을 구현해 물리적 스위치 교체 없이 네트워크 지능화 구현
 - Hypervisor 영역에 구성
-
-[이미지]
 
 ### 2-2. 특징
 
@@ -68,8 +66,6 @@
 - 물리적 스위치 영역에 SDN을 구현
 - 어떠한 서버 가상화 환경에서도 네트워크 지능화 구현
 
-[이미지]
-
 ### 3-2. 특징
 
 - 네트워크 관리 및 지능화
@@ -99,7 +95,7 @@
 
 ### 4-2. 내부 구조
 
-![](https://github.com/dh77hd/Network/blob/master/00_image/sdn_ovs_01.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/81_Network/00_image/sdn_ovs_01.PNG?raw=true)
 
 - ovs-ofctl : OpenFlow를 이용한 OVS 관리 툴
 - ovs-dpctl : datapath 관리 툴
@@ -113,7 +109,7 @@
 
 ### 4-3. 아키텍처
 
-![](https://github.com/dh77hd/Network/blob/master/00_image/sdn_ovs_02.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/81_Network/00_image/sdn_ovs_02.PNG?raw=true)
 
 #### vswitchd
 
@@ -128,7 +124,7 @@
 
 ### 4-4. 인터페이스
 
-![](https://github.com/dh77hd/Network/blob/master/00_image/sdn_ovs_03.PNG?raw=true)
+![](https://github.com/dh77hd/Network/blob/master/81_Network/00_image/sdn_ovs_03.PNG?raw=true)
 
 - OVS 가 지원하는 network 제어 프로토콜을 이용(OpenFlow, OVSDB )
 
@@ -162,7 +158,7 @@
 
 패킷 제어 정보는 **Header Fields, Counters, Actions **로 구성
 
-![](https://github.com/dh77hd/Network/blob/master/00_image/sdn_of_01.PNG?raw=true)
+![](https://github.com/dh77hd/Network/blob/master/81_Network/00_image/sdn_of_01.PNG?raw=true)
 
 #### Header Fields
 

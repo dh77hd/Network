@@ -1,8 +1,6 @@
 # # Provisioning Flow
 
-![](https://github.com/dh77hd/OpenStack/blob/master/image/03_provisioning.PNG?raw=true)
-
-
+![](https://github.com/dh77hd/Note/blob/master/83_OpenStack/image/03_provisioning.PNG?raw=true)
 
 1. Horizon 을 통해 오픈스택 접근
 2. Horizon 에서는 keystone으로 인증 요청을 위해 REST call

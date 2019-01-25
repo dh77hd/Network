@@ -60,7 +60,7 @@
 
 ### 2-2. 컴포넌트
 
-![](https://github.com/dh77hd/OpenStack/blob/master/image/01_nova.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/83_OpenStack/image/01_nova.PNG?raw=true)
 
 - Nova-api
 - Nova-scheduler
@@ -108,7 +108,7 @@
 
 ### 3-2. 컴포넌트
 
-![](https://github.com/dh77hd/OpenStack/blob/master/image/01_neutron.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/83_OpenStack/image/01_neutron.PNG?raw=true)
 
 - Neutron-server
 - Neutron-dhcp-agent
@@ -164,7 +164,7 @@
 
 ### 4-2. 컴포넌트
 
-![](https://github.com/dh77hd/OpenStack/blob/master/image/01_cinder.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/83_OpenStack/image/01_cinder.PNG?raw=true)
 
 - cinder-api
 
@@ -290,7 +290,7 @@ openstack user create --project [project_name] --password-prompt [user_name]
 
 ### 7-2. 컴포넌트
 
-![](https://github.com/dh77hd/OpenStack/blob/master/image/01_glance.PNG?raw=true)
+![](https://github.com/dh77hd/Note/blob/master/83_OpenStack/image/01_glance.PNG?raw=true)
 
 - 
 - 
