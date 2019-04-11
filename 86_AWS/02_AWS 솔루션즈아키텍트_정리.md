@@ -32,27 +32,20 @@
 ### 2-1. VPC
 
 - AWS 계정 전용으로 호스팅되는 가상 네트워크 프로비저닝 
-
 - 다른 가상 네트워크로부터 논리적으로 격리 
-
 - 이중 스택모드 가능(IPv4, IPv6 모두 할당가능) 
-
 - 많은 AWS 리소스가 VPC에서 시작 
-
 - 구성 가능한 기능 
 
   - IP 범위 
   - 라우팅 
   - 네트워크 게이트웨이
   - 보안 설정 
-
 - VPC는 리전에 상주 / 하나의 리전 내에 유지 
-
 - VPC는 두 개 이상의 가용 영역에 있는 리소스 포함 가능
-
 - 같은 계정 및 리전과 여러 리전 또는 계정에 여러 개의 VPC 생성 가능
 
-  ![](C:\Users\LDCC\Desktop\Git\Note\00_image\aws_01.PNG)
+![](https://github.com/dh77hd/Note/blob/master/00_image/aws_01.PNG?raw=true)
 
 ### 2-2. EC2
 
@@ -129,7 +122,7 @@
   3. 서브넷에 탑재 대상 생성 
   4. EC2를 탑재 대상에 연결 
 
-![](C:\Users\LDCC\Desktop\Git\Note\00_image\aws_02.PNG)
+![](https://github.com/dh77hd/Note/blob/master/00_image/aws_02.PNG?raw=true)
 
 ### 2-6. Glacier
 
