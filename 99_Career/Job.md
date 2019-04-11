@@ -54,3 +54,46 @@
 
 
 
+## 3. NBP(시스템 엔지니어)
+
+### 3-1. 업무내용
+
+- Hypervisor/리눅스/Windows 및 클라우드 기반 시스템 설계/관리 전문가 채용
+
+### 3-2. 지원자격
+
+\#필수 자격
+1. 리눅스 / 윈도우 시스템 운영 경험자
+ - Linux / Windows OS 구성 및 운영
+ - Linux / Windows OS 문제관리
+2. x86 하드웨어 기반 시스템 설계(프로비저닝, 설정 관리, 모니터링 영역 등 ) 및 관리, 운영 경험자 ( 리눅스 및 컨테이너 환경 )
+ - 서비스 아키텍쳐 전반적인 구성
+ - HW 시스템 구성 및 운영
+ - HW 문제관리
+3. Private Cloud/Public Cloud 서비스 기반 인프라 운영 경험자
+ - 구축, 운영 및 관리 경험자
+4. CITRIX XenServer, VMware, Hyper-V, OpenStack 등의 가상화/클라우드 솔루션 운영 경험자
+ - Citrix XenServer / VMware / Hyper-V/OpenStack 등 Hypervisor 시스템 구성 및 운영
+ - Citrix XenServer / VMware / Hyper-V/OpenStack 등 Hypervisor 문제 관리
+5. 솔루션 및 오픈소스를 이용한 시스템 관리 자동화 가능자
+ - 서버 솔루션 운영 및 운영에 필요한 관리도구 개발
+6. 서비스/시스템 상에 발생한 다수의 이슈에 대한 트러블 슈팅 경험자
+ - OS 및 Hypervisor 문제관리
+7. DNS 운영
+ - DNS 시스템 구축 및 운영 관리
+
+  
+
+  [지원자격]
+
+- 관련 경력 3 ~ 5년
+
+  [우대사항]
+
+- 관련 분야 상위 등급 자격증 소지자 우대
+
+- 서비스 아키텍쳐 전반적인 구성 관리자 우대
+
+- SDN 환경 운영 경험자
+
+- 스토리지 관리 지식 및 파일 시스템, 디스크 파티션, 마운트, 볼륨할당, 미러링 및 사이징등 대한 지식
