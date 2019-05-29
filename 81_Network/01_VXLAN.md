@@ -1,7 +1,5 @@
 # # VXLAN
 
-
-
 ## 1. Network Overlay  
 
 - 물리 네트워크 위에 성립되는 가상 네트워크
