@@ -97,3 +97,36 @@
 - SDN 환경 운영 경험자
 
 - 스토리지 관리 지식 및 파일 시스템, 디스크 파티션, 마운트, 볼륨할당, 미러링 및 사이징등 대한 지식
+
+
+
+## 4. Cloud Network(skt)
+
+### 4-1. **주요 수행업무 및 역할**
+
+- OpenStack Network Plugin 개발
+- Kubernetes CNI 개발
+- MEC향 Cloud Platform 설계 및 개발
+- SDN Controller Application 개발
+- 당사 자체 개발 가상 네트워크 솔루션 SONA 개발 및 상용 적용
+- 당사 LTE/5G 코어 망 내 VIM(Virtual Infrastructure Manager) 개발 지원 및 검증 수행
+
+### 4-2. 필요역량 및 직무경험
+
+- Network Application 또는 Network Stack 개발
+- OpenStack 및 Kubernetes Networking 관련 지식 및 경험
+- MPLS, BGP, OSPF, ISIS 등의 라우팅 프로토콜 이해 및 개발 경험
+- VXLAN, GRE 등 오버레이 네티워크 이해 및 개발 경험
+- Data Plane Acceleration (DPDK, SR-IOV, XDP 등) 관련 지식 및 경험 (우대)
+- Software-Defined Network 제어 및 데이터 평면 (ONOS, ODL, OpenvSwitch, P4 등) 개발 경험(우대)
+- Jenkins 기반 CI/CD pipeline 설계 및 개발 경험 (우대)
+- Ansible 등 네트워크 관련 스크립트 개발 경험 (우대)
+- CISCO, Arista 등 네트워크 장비 구성 및 운영 경험 (우대)
+- OpenStack Network Plugin 개발 (우대)
+- Kubernetes Network (CNI) 개발 (우대)
+- Open Networking 관련 Community 활동 (Upstream 등) (우대)
+
+###  4-3. 자격요건
+
+- 총 보유 경력 : 관련 업무 경력 2년 이상 (석/박사는 업무 경력 무관) 
+- 학력/전공 : 학사 ~ 박사 / 전기전자 및 컴퓨터 공학 관련
